@@ -21,7 +21,7 @@ const Explorer = () => {
   const [filter, setFilter] = useState("All");
 
   useEffect(() => {
-    fetch(`http://127.0.0.1:8000/explorer`)
+    fetch(`https://prismiq-opo2.onrender.com/explorer`)
       .then((res) => res.json())
       .then((data) => {
         // handle both {results: []} or []

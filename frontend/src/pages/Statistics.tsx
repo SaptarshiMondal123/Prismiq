@@ -22,7 +22,7 @@ import {
 import { jsPDF } from "jspdf";
 
 // This is a placeholder for your API URL
-const API_URL = "http://127.0.0.1:8000";
+const API_URL = `https://prismiq-opo2.onrender.com`;
 
 type Metric = {
     name: string;

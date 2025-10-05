@@ -26,7 +26,7 @@ const Dashboard = () => {
   const [signals, setSignals] = useState<Signal[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  const API_URL = "http://localhost:8000/explorer?limit=8";
+  const API_URL = `https://prismiq-opo2.onrender.com/explorer?limit=8`;
 
   useEffect(() => {
     const fetchSignals = async () => {

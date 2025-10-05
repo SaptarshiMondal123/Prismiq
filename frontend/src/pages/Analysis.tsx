@@ -29,7 +29,7 @@ const Analysis = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch(`http://localhost:8000/analysis/${analysisId}`);
+        const res = await fetch(`https://prismiq-opo2.onrender.com/analysis/${analysisId}`);
         const json = await res.json();
         setData(json);
       } catch (err) {
