@@ -177,7 +177,7 @@ const DataUpload = () => {
         koi_model_snr: parseFloat(koiSnr),
       };
 
-      const response = await fetch("http://localhost:8000/predict_manual", {
+      const response = await fetch(`https://prismiq-opo2.onrender.com/predict_manual`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
