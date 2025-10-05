@@ -1,0 +1,137 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 265 100% 4%;
+    --foreground: 210 100% 98%;
+
+    --card: 265 85% 8%;
+    --card-foreground: 210 100% 98%;
+
+    --popover: 265 85% 8%;
+    --popover-foreground: 210 100% 98%;
+
+    --primary: 280 90% 65%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 190 100% 50%;
+    --secondary-foreground: 265 100% 4%;
+
+    --muted: 265 50% 15%;
+    --muted-foreground: 210 40% 70%;
+
+    --accent: 280 100% 70%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 265 50% 20%;
+    --input: 265 50% 15%;
+    --ring: 280 90% 65%;
+
+    --radius: 0.75rem;
+
+    --success: 142 76% 36%;
+    --warning: 38 92% 50%;
+    --info: 190 100% 50%;
+    
+    --glow-primary: 280 100% 70%;
+    --glow-secondary: 190 100% 60%;
+    
+    --gradient-space: linear-gradient(135deg, hsl(265 100% 4%) 0%, hsl(270 80% 10%) 100%);
+    --gradient-card: linear-gradient(135deg, hsl(265 85% 8% / 0.6) 0%, hsl(270 70% 12% / 0.4) 100%);
+    --gradient-glow: linear-gradient(135deg, hsl(280 100% 70% / 0.2) 0%, hsl(190 100% 60% / 0.2) 100%);
+    
+    --shadow-glow: 0 0 40px hsl(var(--glow-primary) / 0.3);
+    --shadow-glow-secondary: 0 0 40px hsl(var(--glow-secondary) / 0.3);
+    --shadow-card: 0 10px 40px hsl(265 100% 4% / 0.8);
+    
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    background: linear-gradient(135deg, hsl(265 100% 4%) 0%, hsl(270 80% 10%) 100%);
+    min-height: 100vh;
+  }
+  
+  /* Space background with stars */
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+      radial-gradient(2px 2px at 20% 30%, white, transparent),
+      radial-gradient(2px 2px at 60% 70%, white, transparent),
+      radial-gradient(1px 1px at 50% 50%, white, transparent),
+      radial-gradient(1px 1px at 80% 10%, white, transparent),
+      radial-gradient(2px 2px at 90% 60%, white, transparent),
+      radial-gradient(1px 1px at 33% 80%, white, transparent),
+      radial-gradient(1px 1px at 15% 90%, white, transparent);
+    background-size: 200% 200%;
+    background-position: 0% 0%;
+    opacity: 0.3;
+    z-index: 0;
+    pointer-events: none;
+    animation: twinkle 20s ease-in-out infinite;
+  }
+  
+  @keyframes twinkle {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.5; }
+  }
+}
+
+@layer components {
+  .card-space {
+    @apply bg-card/60 backdrop-blur-sm border border-primary/30 rounded-xl shadow-lg;
+    background: linear-gradient(135deg, hsl(265 85% 8% / 0.6) 0%, hsl(270 70% 12% / 0.4) 100%);
+    transition: var(--transition-smooth);
+  }
+  
+  .card-space:hover {
+    @apply border-primary/50;
+    box-shadow: 0 0 30px hsl(var(--glow-primary) / 0.2);
+  }
+  
+  .btn-glow {
+    @apply relative overflow-hidden;
+    transition: var(--transition-smooth);
+  }
+  
+  .btn-glow::before {
+    content: "";
+    @apply absolute inset-0 opacity-0;
+    background: linear-gradient(135deg, hsl(var(--glow-primary) / 0.3) 0%, hsl(var(--glow-secondary) / 0.3) 100%);
+    transition: var(--transition-smooth);
+  }
+  
+  .btn-glow:hover::before {
+    @apply opacity-100;
+  }
+  
+  .text-glow {
+    text-shadow: 0 0 20px hsl(var(--glow-secondary) / 0.5);
+  }
+  
+  .stat-badge {
+    @apply inline-flex items-center justify-center rounded-full px-3 py-1 text-xs font-semibold;
+    background: linear-gradient(135deg, hsl(var(--glow-primary) / 0.2) 0%, hsl(var(--glow-secondary) / 0.2) 100%);
+  }
+}
