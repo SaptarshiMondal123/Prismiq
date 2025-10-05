@@ -58,7 +58,7 @@ except Exception as e:
     raise
 
 # Configure Gemini via environment variable (keeps your original Gemini calls intact)
-GEMINI_KEY = os.environ.get("GEMINI_API_KEY")
+GEMINI_KEY = os.getenv("GEMINI_API_KEY")
 if not GEMINI_KEY:
     logger.warning("GEMINI_API_KEY not set in environment. Gemini calls will fail until set.")
 else:
@@ -254,6 +254,11 @@ def safe_generate_gemini(prompt: str, model_name: str = "gemini-2.0-flash") -> s
 # ------------------------------
 # 6. Main predict endpoint (keeps both Gemini calls)
 # ------------------------------
+
+@app.get("/")
+async def home():
+    return {"message": "Welcome to Prismiq API!"}
+
 @app.post("/predict")
 async def predict(req: PredictRequest):
     # Build sample in the same order as training
