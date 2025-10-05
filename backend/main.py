@@ -29,11 +29,11 @@ models.Base.metadata.create_all(bind=engine)
 # ------------------------------
 # 1. Load Model & Config (paths preserved)
 # ------------------------------
-MODEL_PATH = r"C:\Users\SAPTARSHI MONDAL\Prismiq\backend\models_store\koi_classifier.pkl"
-STATS_PATH = r"C:\Users\SAPTARSHI MONDAL\Prismiq\backend\models_store\feature_stats.pkl"
-PLANET_MODEL_PATH = r"C:\Users\SAPTARSHI MONDAL\Prismiq\backend\models_store\planet_classifier.pkl"
-KOI_METRICS_PATH = r"C:\Users\SAPTARSHI MONDAL\Prismiq\backend\models_store\koi_model_metrics.pkl"
-PLANET_METRICS_PATH = r"C:\Users\SAPTARSHI MONDAL\Prismiq\backend\models_store\planet_model_metrics.pkl"
+MODEL_PATH = "models_store/koi_classifier.pkl"
+STATS_PATH = "models_store/feature_stats.pkl"
+PLANET_MODEL_PATH = "models_store/planet_classifier.pkl"
+KOI_METRICS_PATH = "models_store/koi_model_metrics.pkl"
+PLANET_METRICS_PATH = "models_store/planet_model_metrics.pkl"
 
 # defensive loads with clear errors
 try:
