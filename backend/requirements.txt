@@ -7,3 +7,4 @@ numpy
 pandas
 joblib
 psycopg2
+scikit-learn
