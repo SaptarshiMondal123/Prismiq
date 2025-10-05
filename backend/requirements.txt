@@ -6,3 +6,4 @@ google.generativeai
 numpy
 pandas
 joblib
+psycopg2
